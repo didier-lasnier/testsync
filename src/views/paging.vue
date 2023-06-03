@@ -31,7 +31,7 @@ export default{
     name: "tbs-historique.vue",
     data() {
              return {
-            data: data,
+            data: data.result,
             pageSettings: { currentPage: 1, pageSize: 12, pageSizes: true},
 
         };

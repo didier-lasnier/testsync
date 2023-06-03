@@ -1,24 +1,25 @@
 <template>
     <div id="app">
-        <ejs-grid ref='grid'  :dataSource="data"
-                  width="auto"
-                  :allowPaging='true'
-                  height=500
-                  :pageSettings='pageSettings'
-                  :toolbar='toolbar'
-                  :allowGrouping='false'
-                  :groupSettings='groupOptions'
-                  :load='load'>
 
+            <ejs-grid ref='grid'  :dataSource="data"
+                      width="auto"
+                      height = "500"
+                      :allowPaging='true'
+                      :pageSettings='pageSettings'>
             <e-columns >
                 <e-column v-for="col in cols" :key="col.field" :field=col.field :headerText=col.headerText :type=col.type :width=col.width ></e-column>
             </e-columns>
         </ejs-grid>
+
     </div>
 </template>
 
 <script>
-import {DataManager, ODataAdaptor} from '@syncfusion/ej2-data';
+import {
+    DataManager,
+    UrlAdaptor,
+
+} from '@syncfusion/ej2-data';
 import {
     ColumnDirective,
     ColumnsDirective,
@@ -32,7 +33,6 @@ import {
 
 import { tbshistoriqueCols} from '@/config/tabcolumn';
 import {ref} from "vue";
-import { data } from "@/assets/data";
 
 export default {
     name: "tbs-historique.vue",
@@ -44,14 +44,17 @@ export default {
     },
     data() {
         let SERVICE_URI =
-            //"https://js.syncfusion.com/demos/ejServices/Wcf/Northwind.svc/Orders";
-            "http://localhost:3001/tbs-historique/15";
+            //"https://services.odata.org/V4/Northwind/Northwind.svc/Orders/";
+            "http://localhost:3001/tbs-historique/list";
+        const mymanager = new DataManager({
+            url: SERVICE_URI,
+            adaptor: new UrlAdaptor(),
+            crossDomain: true,
+            offline:true
+        });
+        console.log(mymanager);
         return {
-            data: new DataManager({
-                url: SERVICE_URI,
-                adaptor: new ODataAdaptor(),
-                crossDomain: true
-            }),
+            data: mymanager,
             initialGridLoad: true,
             pageSettings: { pageSizes:true, pageSize: 10 },
             toolbar: ['Add', 'Edit', 'Delete', 'Update', 'Cancel'],
@@ -77,9 +80,9 @@ export default {
                 let rowHeight = this.$refs.grid.ej2Instances.getRowHeight();  //height of the each row
                 let gridHeight = this.$refs.grid.height;  //grid height
                 let pageSize = this.$refs.grid.pageSettings.pageSize;   //initial page size
-                let pageResize = (gridHeight - (pageSize * rowHeight)) / rowHeight; //new page size is obtained here
+                 let pageResize = (gridHeight - (pageSize * rowHeight)) / rowHeight; //new page size is obtained here
 
-               //this.$refs.grid.pageSettings = {pageSize: pageSize + Math.round(pageResize)};
+                this.$refs.grid.pageSettings = {pageSize: pageSize + Math.round(pageResize)};
                 console.log('pageSettings', this.$refs.grid.pageSettings)
             }
         },

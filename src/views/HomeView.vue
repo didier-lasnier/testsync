@@ -2,9 +2,6 @@
 import { onMounted, onBeforeMount, onBeforeUnmount, onUnmounted} from 'vue';
 import { storeToRefs } from 'pinia';
 
-import SyncFusionGrid from './syncfusion-grid.vue';
-import TbsHistorique  from './tbs-historique.vue';
-
 import Paging from "@/views/paging.vue";
 import { useAuthStore, useUsersStore } from '@/stores';
 
