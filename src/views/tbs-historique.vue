@@ -44,13 +44,12 @@ export default {
     },
     data() {
         let SERVICE_URI =
-            //"https://services.odata.org/V4/Northwind/Northwind.svc/Orders/";
-            "http://reinsald-consulting.com:3001/tbs-historique/list";
+            "https://www.reinsald-consulting.com:3001/tbs-historique/list";
         const mymanager = new DataManager({
             url: SERVICE_URI,
             adaptor: new UrlAdaptor(),
             crossDomain: true,
-            offline:true
+            offline:true,
         });
         console.log(mymanager);
         return {
