@@ -35,7 +35,7 @@ import {
     PanelsDirective
 } from "@syncfusion/ej2-vue-layouts";
 
-import Pie1Panel from "@/views/dashboardpanel/pie1panel.vue";
+import Pie1Panel from "@/views/dashboardpanel/pie1-panel.vue";
 import PiePanel from "@/views/dashboardpanel/pie-panel.vue";
 
 const localapp = createApp()
