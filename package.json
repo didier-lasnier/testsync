@@ -9,7 +9,9 @@
     },
     "dependencies": {
         "@syncfusion/ej2-data": "^21.1.38",
+        "@syncfusion/ej2-vue-charts": "^21.2.10",
         "@syncfusion/ej2-vue-grids": "^21.1.41",
+        "@syncfusion/ej2-vue-layouts": "^21.2.9",
         "@syncfusion/ej2-vue-navigations": "^21.2.3",
         "pinia": "^2.0.13",
         "vee-validate": "^4.5.11",

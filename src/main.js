@@ -6,7 +6,7 @@ import { registerLicense } from '@syncfusion/ej2-base';
 // Registering Syncfusion license key
 registerLicense('ORg4AjUWIQA/Gnt2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5Xd0xiXntac3dVRGde');
 import { GridPlugin } from "@syncfusion/ej2-vue-grids";
-
+import { DashboardLayoutPlugin } from "@syncfusion/ej2-vue-layouts";
 import App from './App.vue';
 import { router } from './helpers';
 import { useAuthStore } from './stores';
@@ -25,6 +25,7 @@ async function startApp () {
     app.use(createPinia());
     app.use(router);
     app.use(GridPlugin);
+    app.use(DashboardLayoutPlugin);
     // attempt to auto refresh token before startup
     try {
         const authStore = useAuthStore();

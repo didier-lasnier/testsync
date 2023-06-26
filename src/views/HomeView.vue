@@ -2,8 +2,10 @@
 import { onMounted, onBeforeMount, onBeforeUnmount, onUnmounted} from 'vue';
 import { storeToRefs } from 'pinia';
 
-import Paging from "@/views/paging.vue";
 import { useAuthStore, useUsersStore } from '@/stores';
+//import TbsHistorique from "@/views/tbs-historique.vue";
+//import LineChart   from "@/views/DashbrdCharts.vue";
+
 
 
 const authStore = useAuthStore();
@@ -33,7 +35,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <div>
+    <tbs-historique></tbs-historique>
+    <LineChart></LineChart>
+<!--    <div>
         <h1>Hi {{authUser?.firstName}}!</h1>
         <p>You're logged in with Vue 3 + JWT with Refresh Tokens!!</p>
         <h3>Users from secure api end point:</h3>
@@ -43,8 +47,8 @@ onUnmounted(() => {
         <div v-if="users.loading" class="spinner-border spinner-border-sm"></div>
         <div v-if="users.error" class="text-danger">Error loading users: {{users.error}}</div>
     </div>
-<!--    <div>
+&lt;!&ndash;    <div>
         <SyncFusionGrid />
-    </div>-->
-    <div><Paging /></div>
+    </div>&ndash;&gt;
+    <div><Paging /></div>-->
 </template>

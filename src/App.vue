@@ -22,6 +22,8 @@ const authStore = useAuthStore();
 
 <style>
 @import '../node_modules/@syncfusion/ej2-vue-grids/styles/material.css';
+@import "../node_modules/@syncfusion/ej2-vue-layouts/styles/material.css";
+
 
 @import '@/assets/base.css';
 </style>
